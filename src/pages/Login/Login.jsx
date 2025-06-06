@@ -1,13 +1,31 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router';
+import React, { use, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
 import SocialLogin from '../Shared/SocialLogin';
+import { AuthContext } from '../../context/AuthContext';
 
 const Login = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const { signIn } = use(AuthContext);
+
+    const handleLogin = e => {
         e.preventDefault();
 
-    };
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log({ email, password }); 
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user); 
+                navigate(`${location.state ? location.state : '/'}`)
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                setError(errorCode)
+            })
+    }
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100  px-4">

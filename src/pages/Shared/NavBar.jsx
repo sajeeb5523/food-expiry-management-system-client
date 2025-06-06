@@ -1,11 +1,27 @@
 import React, { use } from 'react';
-import { Link, NavLink } from 'react-router';
+import { NavLink } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import { TbLogout } from "react-icons/tb";
+import Swal from 'sweetalert2';
 
 const NavBar = () => {
 
-    const { user } = use(AuthContext);
+    const { user, logOut } = use(AuthContext);
+    const handleLogout = () => {
+        console.log('user logout');
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Logout successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }).catch((error) => {
+                console.log(error);
+            });
+    }
 
     const links = <>
         <NavLink to='/' className='btn btn-sm'>Home</NavLink>
@@ -52,7 +68,7 @@ const NavBar = () => {
                                 <ul className="menu menu-sm p-2 gap-1.5">
                                     <p className='text-center'> {user.displayName}</p>
                                     <li>
-                                        <button className="btn w-full ">
+                                        <button onClick={handleLogout} className="btn w-full ">
                                             <TbLogout />Logout
                                         </button>
                                     </li>

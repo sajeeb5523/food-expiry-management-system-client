@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import SocialLogin from '../Shared/SocialLogin';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
+import { AuthContext } from '../../context/AuthContext';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const [errorMessage, setErrorMessage] = useState('');
+
+    const { createUser, updateUser, setUser } = use(AuthContext);
+    const navigate = useNavigate();
 
     const handleRegister = e => {
         e.preventDefault();
@@ -13,6 +18,7 @@ const Register = () => {
         const photo = e.target.photo.value;
         const password = e.target.password.value;
 
+        // Password validation
         const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if (passwordRegExp.test(password) === false) {
             setErrorMessage('Password (at least 6 characters, 1 uppercase and 1 lowercase)');
@@ -20,6 +26,31 @@ const Register = () => {
         }
 
         console.log(name, email, photo, password);
+
+        createUser(email, password)
+            .then(result => {
+                console.log(result);
+                const user = result.user;
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Register successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                updateUser({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        setUser({ ...user, displayName: name, photoURL: photo });
+                        navigate('/')
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        setUser(user)
+                    })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
     return (
