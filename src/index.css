@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+a.active {
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid black;
+    font-weight: 600;
+    @apply btn-sm bg-red-400
+}

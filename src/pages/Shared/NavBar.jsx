@@ -25,11 +25,11 @@ const NavBar = () => {
 
     const links = <>
         <NavLink to='/' className='btn btn-sm'>Home</NavLink>
-        <NavLink className='btn btn-sm'>Fridge</NavLink>
+        <NavLink to='/fridge' className='btn btn-sm'>Fridge</NavLink>
         {
             user && <>
-                <NavLink className='btn btn-sm'>Add Food</NavLink>
-                <NavLink className='btn btn-sm'>My Items</NavLink>
+                <NavLink to='add-food' className='btn btn-sm'>Add Food</NavLink>
+                <NavLink to='my-items' className='btn btn-sm'>My Items</NavLink>
             </>
         }
     </>
