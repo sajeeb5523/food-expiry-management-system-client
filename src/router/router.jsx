@@ -11,6 +11,7 @@ import AddFood from "../pages/AddFood/AddFood";
 import MyItems from "../pages/MyItems/MyItems";
 import FoodDetails from "../pages/FoodDetails/FoodDetails";
 import PrivateRoutes from "../routes/PrivateRoutes";
+import Error from "../pages/Error/Error";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: '*',
+        Component: Error,
+    }
 ]);
 
 export default router;
