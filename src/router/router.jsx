@@ -6,6 +6,7 @@ import Home from "../pages/Home/Home";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import Fridge from "../pages/Fridge/Fridge";
+import AddFood from "../pages/AddFood/AddFood";
 
 const router = createBrowserRouter([
     {
@@ -17,8 +18,12 @@ const router = createBrowserRouter([
                 Component: Home,
             },
             {
-                path: 'fridge',
+                path: '/fridge',
                 Component: Fridge,
+            },
+            {
+                path: '/add-food',
+                Component: AddFood,
             },
             {
                 path: '/register',
