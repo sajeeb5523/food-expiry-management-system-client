@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import SocialLogin from '../Shared/SocialLogin';
 import { AuthContext } from '../../context/AuthContext';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const location = useLocation();
@@ -14,21 +15,32 @@ const Login = () => {
 
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log({ email, password }); 
+
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user); 
-                navigate(`${location.state ? location.state : '/'}`)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Login successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(`${location.state ? location.state : '/'}`);
             })
             .catch((error) => {
-                const errorCode = error.code;
-                setError(errorCode)
-            })
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Email or password is incorrect',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100  px-4">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
             <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg">
                 <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
                     Login to Your Account
@@ -66,7 +78,7 @@ const Login = () => {
                 </form>
 
                 <p className="mt-4 text-center text-sm text-gray-500">
-                    Don’t have an account? <Link to="/register" className="text-indigo-600 hover:underline dark:text-indigo-400">
+                    Don't have an account? <Link to="/register" className="text-indigo-600 hover:underline dark:text-indigo-400">
                         Register
                     </Link>
                 </p>

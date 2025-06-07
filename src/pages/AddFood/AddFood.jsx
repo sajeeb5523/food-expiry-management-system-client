@@ -1,10 +1,11 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import Swal from 'sweetalert2';
 
 const AddFood = () => {
     const { user } = use(AuthContext);
+    const navigate = useNavigate()
 
     const handleAddFood = e => {
         e.preventDefault();
@@ -14,7 +15,7 @@ const AddFood = () => {
         console.log(newFood);
 
         // send food data to the database
-        fetch('http://localhost:3000/add-foods', {
+        fetch('http://localhost:3000/foods', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -25,6 +26,7 @@ const AddFood = () => {
             .then(data => {
                 if (data.insertedId) {
                     console.log('added successfully');
+                    navigate('/my-items')
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -56,7 +58,7 @@ const AddFood = () => {
                         <label className="block text-sm font-medium text-gray-700 mb-1">Food title</label>
                         <input
                             type='text'
-                            name='name'
+                            name='title'
                             className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             placeholder="Enter your food title"
                         />
@@ -126,7 +128,7 @@ const AddFood = () => {
                         />
                     </div>
 
-                    <input type='submit' className='btn btn-primary w-full mx-auto mt-1' value='Submit'></input>
+                    <input type='submit' className='btn btn-primary w-full mx-auto mt-1' value='Add Food'></input>
                 </form>
             </div>
         </div>
