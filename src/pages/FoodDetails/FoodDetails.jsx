@@ -75,7 +75,7 @@ const FoodDetails = () => {
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="max-w-4xl mx-auto">
-                <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <div className="bg-white rounded-lg shadow-lg p-6 mb-8 border">
                     <div className="flex flex-col md:flex-row gap-6">
                         <img src={food.photo} alt={food.name} className="w-full md:w-1/2 h-64 object-cover rounded-lg" />
                         <div className="flex-1">
@@ -95,7 +95,7 @@ const FoodDetails = () => {
                     </div>
                 </div>
 
-                <div className="bg-white rounded-lg shadow-lg p-6">
+                <div className="bg-white rounded-lg shadow-lg p-6 border">
                     <h2 className="text-2xl font-bold mb-4">Notes</h2>
 
                     <form onSubmit={handleAddNote} className="mb-6">

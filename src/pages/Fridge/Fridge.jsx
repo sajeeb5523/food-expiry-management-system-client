@@ -105,7 +105,7 @@ const Fridge = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredFoods.map(food => (
-                    <div key={food._id} className="card bg-base-100 shadow-xl">
+                    <div key={food._id} className="card bg-base-100 shadow-xl border">
                         <figure className="px-4 pt-4">
                             <img src={food.photo} alt={food.name} className="rounded-xl h-48 w-full object-cover" />
                         </figure>
