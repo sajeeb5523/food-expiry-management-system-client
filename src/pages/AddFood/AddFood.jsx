@@ -15,7 +15,7 @@ const AddFood = () => {
         console.log(newFood);
 
         // send food data to the database
-        fetch('http://localhost:3000/foods', {
+        fetch('https://fets-bd-server.vercel.app/foods', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

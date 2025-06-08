@@ -12,7 +12,7 @@ const MyItems = () => {
     useEffect(() => {
         if (!user?.email) return;
 
-        fetch('http://localhost:3000/foods')
+        fetch('https://fets-bd-server.vercel.app/foods')
             .then(res => res.json())
             .then(data => {
                 const userFoods = data.filter(food => food.email === user.email);
@@ -34,7 +34,7 @@ const MyItems = () => {
         const formData = new FormData(form);
         const updatedFood = Object.fromEntries(formData.entries());
 
-        fetch(`http://localhost:3000/foods/${selectedFood._id}`, {
+        fetch(`https://fets-bd-server.vercel.app/foods/${selectedFood._id}`, {
             method: 'PUT',
             headers: {
                 'content-Type': 'application/json',
@@ -71,7 +71,7 @@ const MyItems = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/foods/${id}`, {
+                fetch(`https://fets-bd-server.vercel.app/foods/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

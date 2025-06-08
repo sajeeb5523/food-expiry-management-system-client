@@ -24,12 +24,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/fridge',
-                loader: () => fetch('http://localhost:3000/foods'),
+                loader: () => fetch('https://fets-bd-server.vercel.app/foods'),
                 Component: Fridge,
             },
             {
                 path: '/food/:id',
-                loader: ({ params }) => fetch(`http://localhost:3000/foods/${params.id}`).then(res => res.json()),
+                loader: ({ params }) => fetch(`https://fets-bd-server.vercel.app/foods/${params.id}`).then(res => res.json()),
                 Component: FoodDetails,
             },
             {

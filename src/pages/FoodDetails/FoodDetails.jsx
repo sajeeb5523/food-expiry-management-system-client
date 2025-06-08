@@ -38,7 +38,7 @@ const FoodDetails = () => {
     }, [food.expiry]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/notes/${id}`)
+        fetch(`https://fets-bd-server.vercel.app/notes/${id}`)
             .then(res => res.json())
             .then(data => setNotes(data))
             .catch(error => console.error('Error fetching notes:', error));
@@ -55,7 +55,7 @@ const FoodDetails = () => {
             userEmail: user.email
         };
 
-        fetch('http://localhost:3000/notes', {
+        fetch('https://fets-bd-server.vercel.app/notes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

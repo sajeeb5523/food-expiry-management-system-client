@@ -5,7 +5,7 @@ const ExpiredFoodSection = () => {
     const [expiredFoods, setExpiredFoods] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/foods')
+        fetch('https://fets-bd-server.vercel.app/foods')
             .then(res => res.json())
             .then(data => {
                 const today = new Date();
