@@ -19,13 +19,12 @@ const ExtraSection = () => {
 
     return (
         <div className='container mx-auto'>
-
             <div className='text-center'>
                 <h3 className='text-[53px] text-[#1565C0] font-semibold pt-4 uppercase'> Food Expiry Management Guide</h3>
                 <h6 className='text-[#666] mb-10 text-[21px]'>Essential information and tips to help you manage food expiry dates, storage, and safety</h6>
             </div>
 
-            <div className='space-y-8'>
+            <div className='space-y-8 pb-10'>
                 <Grid item xs={12} md={6}>
                     <Box
                         sx={{

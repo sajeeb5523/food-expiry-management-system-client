@@ -99,6 +99,7 @@ const MyItems = () => {
                     <table className="table w-full">
                         <thead>
                             <tr>
+                                <th className='hidden md:block'>#</th>
                                 <th>Image</th>
                                 <th>Title</th>
                                 <th>Category</th>
@@ -108,8 +109,9 @@ const MyItems = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {myFoods.map(food => (
+                            {myFoods.map((food, index) => (
                                 <tr key={food._id}>
+                                    <td className='hidden md:block'>{index + 1}</td>
                                     <td>
                                         <img src={food.photo} alt={food.title} className="w-16 h-16 object-cover rounded" />
                                     </td>
