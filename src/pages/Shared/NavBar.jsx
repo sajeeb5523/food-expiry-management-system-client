@@ -47,7 +47,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className='flex items-center gap-2'>
-                    <img alt="" className='w-15' />
+                    <img src='https://i.ibb.co/LqPhjrT/logo.jpg' alt="" className='w-15' />
                     <a className="hidden md:block text-2xl font-bold">FETS bd</a>
                 </div>
             </div>
