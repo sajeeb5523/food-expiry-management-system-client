@@ -7,7 +7,7 @@ import ExtraSection from '../ExtraSection/ExtraSection';
 const Home = () => {
     return (
         <div>
-            <div>
+            <div className='roboto-slab'>
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50">
                     <Banner></Banner>
                 </div>
