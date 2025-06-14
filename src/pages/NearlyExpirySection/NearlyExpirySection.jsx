@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
+import { motion } from "motion/react"
 
 const NearlyExpirySection = () => {
     const [nearlyExpiringFoods, setNearlyExpiringFoods] = useState([]);
@@ -27,7 +28,12 @@ const NearlyExpirySection = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h2 className="text-3xl font-bold text-center mb-8">Nearly Expiring Items</h2>
+            <motion.h2
+                initial={{ scale: 0 }}
+                animate={{ scale: 1, transition: { duration: 5, delay: 3, repeat: Infinity } }}
+                className="text-3xl font-bold text-center mb-8"
+            >Nearly Expiring Items</motion.h2>
+
 
             {nearlyExpiringFoods.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
