@@ -46,7 +46,7 @@ const Fridge = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h2 className="text-3xl font-bold text-center mb-8">Our Fridge</h2>
+            <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-8 mt-16'>Our Fridge</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                 <div className="bg-gradient-to-r from-red-500 to-red-600 p-8 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300">
                     <div className="flex items-center justify-between">
@@ -128,7 +128,7 @@ const Fridge = () => {
 
             {filteredFoods.length === 0 && (
                 <div className="text-center mt-8">
-                    <p className="text-xl text-gray-600">No foods found matching your title or category</p>
+                    <p className="text-lg text-gray-600">No foods found matching your title or category</p>
                 </div>
             )}
         </div>

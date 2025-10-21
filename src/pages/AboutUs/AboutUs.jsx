@@ -24,7 +24,7 @@ const teamMembers = [
 
 const AboutUs = () => {
     return (
-        <div className="font-sans text-gray-800">
+        <div className="font-sans text-gray-800 mt-16">
             {/* Hero Section */}
             <section className="relative bg-cover bg-center h-96 flex items-center justify-center text-center text-white"
                 style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))' }}>
@@ -35,9 +35,9 @@ const AboutUs = () => {
             </section>
 
             {/* Mission Section */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-10 bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Our Mission</h2>
+                    <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-12'>Our Mission</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
                             <FaUsers className="text-5xl text-green-600 mx-auto mb-6" />
@@ -59,9 +59,9 @@ const AboutUs = () => {
             </section>
 
             {/* Team Section */}
-            <section className="py-20">
+            <section className="py-10">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Meet Our Team</h2>
+                    <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-12'>Meet Our Team</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {teamMembers.map((member, index) => (
                             <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -82,9 +82,9 @@ const AboutUs = () => {
             </section>
 
             {/* Contact Section */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-10 bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Get In Touch</h2>
+                    <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-12'>Get In Touch</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         <div className="bg-white p-8 rounded-lg shadow-md">
                             <h3 className="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>

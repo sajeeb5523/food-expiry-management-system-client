@@ -39,7 +39,7 @@ const AddFood = () => {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 mt-16">
             <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg my-8">
                 <form onSubmit={handleAddFood} className="space-y-5">
                     {/* Food image */}

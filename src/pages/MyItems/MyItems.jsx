@@ -91,8 +91,8 @@ const MyItems = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h2 className="text-3xl font-bold text-center mb-8">My Food Items</h2>
+        <div className="container mx-auto px-4 py-8 mt-16">
+            <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center -mb-4'>My Food Items</h3>
 
             {myFoods.length > 0 ? (
                 <div className="overflow-x-auto">
@@ -140,7 +140,7 @@ const MyItems = () => {
                 </div>
             ) : (
                 <div className="text-center mt-8">
-                    <p className="text-xl text-gray-600">You haven't add food items yet.</p>
+                    <p className="text-lg text-gray-600">You haven't add food items yet.</p>
                 </div>
             )}
 

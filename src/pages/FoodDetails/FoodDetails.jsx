@@ -73,7 +73,7 @@ const FoodDetails = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 mt-16">
             <div className="max-w-4xl mx-auto">
                 <div className="bg-white rounded-lg shadow-lg p-6 mb-8 border">
                     <div className="flex flex-col md:flex-row gap-6">

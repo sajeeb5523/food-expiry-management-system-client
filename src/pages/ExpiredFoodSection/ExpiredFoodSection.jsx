@@ -22,11 +22,14 @@ const ExpiredFoodSection = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <motion.h2
+            {/* animation */}
+            {/* <motion.h2
                 initial={{ scale: 0 }}
                 animate={{ scale: 1, transition: { duration: 5, delay: 3, repeat: Infinity } }}
                 className="text-3xl font-bold text-center mb-8"
-            >Expired Food Items</motion.h2>
+            >Expired Food Items</motion.h2> */}
+
+            <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-8'>Expired Food Items</h3>
 
             {expiredFoods.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
