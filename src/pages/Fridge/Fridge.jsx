@@ -9,6 +9,7 @@ const Fridge = () => {
     const [filteredFoods, setFilteredFoods] = useState(foods);
     const [expiredCount, setExpiredCount] = useState(0);
     const [nearlyExpiredCount, setNearlyExpiredCount] = useState(0);
+    const [sortOrder, setSortOrder] = useState('none'); // 'none' | 'qty-asc' | 'qty-desc'
 
     useEffect(() => {
         let result = foods;
@@ -24,8 +25,15 @@ const Fridge = () => {
             result = result.filter(food => food.category === selectedCategory);
         }
 
+        // Sorting
+        if (sortOrder === 'qty-asc') {
+            result = [...result].sort((a, b) => (Number(a.quantity) || 0) - (Number(b.quantity) || 0));
+        } else if (sortOrder === 'qty-desc') {
+            result = [...result].sort((a, b) => (Number(b.quantity) || 0) - (Number(a.quantity) || 0));
+        }
+
         setFilteredFoods(result);
-    }, [searchTerm, selectedCategory, foods]);
+    }, [searchTerm, selectedCategory, foods, sortOrder]);
 
     useEffect(() => {
         const today = new Date();
@@ -101,6 +109,18 @@ const Fridge = () => {
                         ))}
                     </select>
                 </div>
+                <div className="w-full md:w-48">
+                    <select
+                        className="select w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        value={sortOrder}
+                        onChange={(e) => setSortOrder(e.target.value)}
+                    >
+                        <option value="none">Sort: None</option>
+                        <option value="qty-asc">Quantity: Low → High</option>
+                        <option value="qty-desc">Quantity: High → Low</option>
+                    </select>
+                </div>
+
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
