@@ -12,6 +12,7 @@ import MyItems from "../pages/MyItems/MyItems";
 import FoodDetails from "../pages/FoodDetails/FoodDetails";
 import PrivateRoutes from "../routes/PrivateRoutes";
 import Error from "../pages/Error/Error";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
                 path: '/fridge',
                 loader: () => fetch('https://fets-bd-server.vercel.app/foods'),
                 Component: Fridge,
+            },
+            {
+                path: '/about-us',
+                Component: AboutUs,
             },
             {
                 path: '/food/:id',
