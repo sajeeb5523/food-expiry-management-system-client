@@ -32,9 +32,9 @@ const Banner = () => {
                             className="w-full h-[750px] object-cover brightness-50"
                         />
                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[600px] px-8">
-                            <div className="bg-white bg-opacity-60 backdrop-blur-sm p-8 rounded-lg shadow-2xl border border-white border-opacity-20 text-center">
-                                <h2 className="text-[32px] font-bold mb-4 text-black">{card.title}</h2>
-                                <p className="text-lg mb-6 text-black-200">{card.description}</p>
+                            <div className="bg-base-100 bg-opacity-60 backdrop-blur-sm p-8 rounded-lg shadow-2xl border border-white border-opacity-20 text-center">
+                                <h2 className="text-[32px] font-bold mb-4 text-base-content">{card.title}</h2>
+                                <p className="text-lg mb-6 text-base-content-200">{card.description}</p>
                                 <button className="btn btn-primary hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
                                     See More
                                 </button>

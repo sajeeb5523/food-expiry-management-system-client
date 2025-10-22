@@ -24,7 +24,7 @@ const teamMembers = [
 
 const AboutUs = () => {
     return (
-        <div className="font-sans text-gray-800 mt-16">
+        <div className="font-sans mt-16">
             {/* Hero Section */}
             <section className="relative bg-cover bg-center h-96 flex items-center justify-center text-center text-white"
                 style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))' }}>
@@ -35,45 +35,47 @@ const AboutUs = () => {
             </section>
 
             {/* Mission Section */}
-            <section className="py-10 bg-gray-50">
+            <section className="py-10 bg-base-100">
                 <div className="container mx-auto px-4">
                     <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-12'>Our Mission</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                        <div className="bg-base-300 p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300 border">
                             <FaUsers className="text-5xl text-green-600 mx-auto mb-6" />
-                            <h3 className="text-xl font-semibold mb-3 text-gray-800">Community</h3>
-                            <p className="text-gray-600">Building a community committed to reducing food waste and helping those in need.</p>
+                            <h3 className="text-xl font-semibold mb-3">Community</h3>
+                            <p>Building a community committed to reducing food waste and helping those in need.</p>
                         </div>
-                        <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+
+                        <div className="bg-base-300 p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300 border">
                             <FaClock className="text-5xl text-green-600 mx-auto mb-6" />
-                            <h3 className="text-xl font-semibold mb-3 text-gray-800">Efficiency</h3>
-                            <p className="text-gray-600">Providing tools to track and manage food inventory before it expires.</p>
+                            <h3 className="text-xl font-semibold mb-3">Efficiency</h3>
+                            <p>Providing tools to track and manage food inventory before it expires.</p>
                         </div>
-                        <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+
+                        <div className="bg-base-300 p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300 border">
                             <FaLeaf className="text-5xl text-green-600 mx-auto mb-6" />
-                            <h3 className="text-xl font-semibold mb-3 text-gray-800">Sustainability</h3>
-                            <p className="text-gray-600">Promoting sustainable practices to protect our environment.</p>
+                            <h3 className="text-xl font-semibold mb-3">Sustainability</h3>
+                            <p>Promoting sustainable practices to protect our environment.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Team Section */}
-            <section className="py-10">
+            <section className="py-10 bg-base-100">
                 <div className="container mx-auto px-4">
                     <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-12'>Meet Our Team</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {teamMembers.map((member, index) => (
-                            <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <div key={index} className="bg-base-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border">
                                 <img
                                     src={member.image}
                                     alt={member.name}
                                     className="w-full h-94 object-cover"
                                 />
                                 <div className="p-6 text-center">
-                                    <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
+                                    <h3 className="text-xl font-semibold">{member.name}</h3>
                                     <p className="text-green-600 font-medium mb-3">{member.role}</p>
-                                    <p className="text-gray-600">{member.bio}</p>
+                                    <p>{member.bio}</p>
                                 </div>
                             </div>
                         ))}
@@ -82,26 +84,27 @@ const AboutUs = () => {
             </section>
 
             {/* Contact Section */}
-            <section className="py-10 bg-gray-50">
+            <section className="py-10 -mt-10 bg-base-100">
                 <div className="container mx-auto px-4">
                     <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-12'>Get In Touch</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div className="bg-white p-8 rounded-lg shadow-md">
-                            <h3 className="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                        <div className="bg-base-300 p-8 rounded-lg shadow-md border">
+                            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
                             <div className="space-y-4">
-                                <p className="flex items-center text-gray-600">
+                                <p className="flex items-center">
                                     <FaEnvelope className="text-green-600 mr-3" /> sajeebaljabed1@gmail.com
                                 </p>
-                                <p className="flex items-center text-gray-600">
+                                <p className="flex items-center">
                                     <FaPhone className="text-green-600 mr-3" /> +8801571595523
                                 </p>
-                                <p className="flex items-start text-gray-600">
+                                <p className="flex items-start">
                                     <FaMapMarkerAlt className="text-green-600 mr-3 mt-1 flex-shrink-0" />
                                     <span>Dhaka, Bangladesh</span>
                                 </p>
                             </div>
                         </div>
-                        <div className="bg-white p-8 rounded-lg shadow-md">
+                        
+                        <div className="bg-base-300 p-8 rounded-lg shadow-md border">
                             <form className="space-y-6">
                                 <div>
                                     <input

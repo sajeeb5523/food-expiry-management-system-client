@@ -1,8 +1,9 @@
 import React, { use } from 'react';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
-import { TbLogout, TbUser, TbHome, TbFridge, TbPlus, TbList, TbUserCircle, TbInfoCircle } from "react-icons/tb";
+import { TbLogout, TbUser, TbHome, TbFridge, TbPlus, TbList, TbInfoCircle } from "react-icons/tb";
 import Swal from 'sweetalert2';
+import ThemeController from '../ThemeController/ThemeController';
 
 const NavBar = () => {
 
@@ -76,12 +77,13 @@ const NavBar = () => {
             </div>
             <div className='ml-10'>
             </div>
+            <ThemeController></ThemeController>
             <div className='login_btn flex items-center gap-2 navbar-end'>
 
                 {user ? (
                     <div className="relative group">
                         <div className="avatar cursor-pointer">
-                            <div className="w-10 h-10 rounded-full ring-2 ring-base-100">
+                            <div className="w-10 h-10 rounded-full ring ring-base-100">
                                 {user.photoURL ? (
                                     <img src={user.photoURL} alt={user.displayName || 'User'} className="w-full h-full object-cover" />
                                 ) : (
@@ -95,7 +97,7 @@ const NavBar = () => {
                             <div className="p-2">
                                 <div className="px-4 py-2 border-b border-base-200">
                                     <p className="font-medium text-sm">{user.displayName || 'User'}</p>
-                                    <p className="text-xs text-gray-500">{user.email}</p>
+                                    <p className="text-xs text-base-500">{user.email}</p>
                                 </div>
                                 <ul className="menu menu-sm p-2">
                                     <li>

@@ -54,16 +54,16 @@ const Register = () => {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 mt-16">
-            <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg my-10">
-                <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+        <div className="min-h-screen flex items-center justify-center bg-base-300 px-4 mt-16">
+            <div className="w-full max-w-md bg-base-100 p-8 rounded-xl shadow-lg my-10 border">
+                <h2 className="text-2xl font-bold text-center mb-6">
                     Register to your account
                 </h2>
 
                 <form onSubmit={handleRegister} className="space-y-5">
                     {/* Name */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <label className="block text-sm font-medium mb-1">Name</label>
                         <input
                             type='text'
                             name='name'
@@ -74,7 +74,7 @@ const Register = () => {
 
                     {/* Email */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <label className="block text-sm font-medium mb-1">Email</label>
                         <input
                             type='email'
                             name='email'
@@ -85,7 +85,7 @@ const Register = () => {
 
                     {/* PhotoURL */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">PhotoURL</label>
+                        <label className="block text-sm font-medium mb-1">PhotoURL</label>
                         <input
                             type='text'
                             name='photo'
@@ -96,7 +96,7 @@ const Register = () => {
 
                     {/* Password */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <label className="block text-sm font-medium mb-1">Password</label>
                         <input
                             type='password'
                             name='password'

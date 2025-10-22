@@ -39,12 +39,12 @@ const AddFood = () => {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 mt-16">
-            <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg my-8">
+        <div className="min-h-screen flex items-center justify-center bg-base-300 px-4 mt-16">
+            <div className="w-full max-w-md bg-base-100 p-8 rounded-xl shadow-lg my-8 dark:border">
                 <form onSubmit={handleAddFood} className="space-y-5">
                     {/* Food image */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Food image</label>
+                        <label className="block text-sm font-medium mb-1">Food image</label>
                         <input
                             type='text'
                             name='photo'
@@ -55,7 +55,7 @@ const AddFood = () => {
 
                     {/* Food title */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Food title</label>
+                        <label className="block text-sm font-medium mb-1">Food title</label>
                         <input
                             type='text'
                             name='title'
@@ -65,7 +65,7 @@ const AddFood = () => {
                     </div>
 
                     {/* Category */}
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                    <label className="block text-sm font-medium mb-1">Category</label>
                     <select defaultValue="Category" name='category' className="select w-full">
                         <option disabled={true}>Category</option>
                         <option>Dairy</option>
@@ -76,7 +76,7 @@ const AddFood = () => {
 
                     {/* Quantity */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
+                        <label className="block text-sm font-medium mb-1">Quantity</label>
                         <input
                             type='text'
                             name='quantity'
@@ -87,7 +87,7 @@ const AddFood = () => {
 
                     {/* Expiry date */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Expiry date</label>
+                        <label className="block text-sm font-medium mb-1">Expiry date</label>
                         <input
                             type="date"
                             name='expiry'
@@ -98,13 +98,13 @@ const AddFood = () => {
 
                     {/* Description */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                        <label className="block text-sm font-medium mb-1">Description</label>
                         <textarea className="textarea w-full" name='description' placeholder="Enter description"></textarea>
                     </div>
 
                     {/* Added Date */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Added Date</label>
+                        <label className="block text-sm font-medium mb-1">Added Date</label>
                         <input
                             type='text'
                             name='addedDate'
@@ -117,7 +117,7 @@ const AddFood = () => {
 
                     {/* User email */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <label className="block text-sm font-medium mb-1">Email</label>
                         <input
                             type='email'
                             name='email'

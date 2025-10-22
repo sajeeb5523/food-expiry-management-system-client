@@ -91,129 +91,131 @@ const MyItems = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8 mt-16">
-            <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center -mb-4'>My Food Items</h3>
+        <div className='bg-base-300'>
+            <div className="container mx-auto px-4 py-8 mt-16">
+                <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-2'>My Food Items</h3>
 
-            {myFoods.length > 0 ? (
-                <div className="overflow-x-auto">
-                    <table className="table w-full">
-                        <thead>
-                            <tr>
-                                <th className='hidden md:block'>#</th>
-                                <th>Image</th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Quantity</th>
-                                <th>Expiry Date</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {myFoods.map((food, index) => (
-                                <tr key={food._id}>
-                                    <td className='hidden md:block'>{index + 1}</td>
-                                    <td>
-                                        <img src={food.photo} alt={food.title} className="w-16 h-16 object-cover rounded" />
-                                    </td>
-                                    <td>{food.title}</td>
-                                    <td>{food.category}</td>
-                                    <td>{food.quantity}</td>
-                                    <td>{new Date(food.expiry).toLocaleDateString()}</td>
-                                    <td className="space-x-2">
-                                        <button
-                                            onClick={() => handleUpdate(food)}
-                                            className="btn btn-sm btn-primary"
-                                        >
-                                            Update
-                                        </button>
-                                        <button
-                                            onClick={() => handleDelete(food._id)}
-                                            className="btn btn-sm btn-error"
-                                        >
-                                            Delete
-                                        </button>
-                                    </td>
+                {myFoods.length > 0 ? (
+                    <div className="overflow-x-auto">
+                        <table className="table w-full">
+                            <thead>
+                                <tr>
+                                    <th className='hidden md:block'>#</th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Quantity</th>
+                                    <th>Expiry Date</th>
+                                    <th>Actions</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            ) : (
-                <div className="text-center mt-8">
-                    <p className="text-lg text-gray-600">You haven't add food items yet.</p>
-                </div>
-            )}
-
-            {isUpdateModalOpen && selectedFood && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <div className="bg-white p-8 rounded-lg w-full max-w-md">
-                        <h3 className="text-2xl font-bold mb-4">Update Food Item</h3>
-                        <form onSubmit={handleUpdateSubmit} className="space-y-4">
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Food image URL</label>
-                                <input
-                                    type="text"
-                                    name="photo"
-                                    defaultValue={selectedFood.photo}
-                                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Food title</label>
-                                <input
-                                    type="text"
-                                    name="title"
-                                    defaultValue={selectedFood.title}
-                                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-                                <select
-                                    name="category"
-                                    defaultValue={selectedFood.category}
-                                    className="select w-full"
-                                >
-                                    <option>Dairy</option>
-                                    <option>Meat</option>
-                                    <option>Vegetables</option>
-                                    <option>Snacks</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
-                                <input
-                                    type="text"
-                                    name="quantity"
-                                    defaultValue={selectedFood.quantity}
-                                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Expiry date</label>
-                                <input
-                                    type="date"
-                                    name="expiry"
-                                    defaultValue={selectedFood.expiry.split('T')[0]}
-                                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                />
-                            </div>
-                            <div className="flex justify-end space-x-2">
-                                <button
-                                    type="button"
-                                    onClick={() => setIsUpdateModalOpen(false)}
-                                    className="btn btn-ghost"
-                                >
-                                    Cancel
-                                </button>
-                                <button type="submit" className="btn btn-primary">
-                                    Update
-                                </button>
-                            </div>
-                        </form>
+                            </thead>
+                            <tbody>
+                                {myFoods.map((food, index) => (
+                                    <tr key={food._id}>
+                                        <td className='hidden md:block'>{index + 1}</td>
+                                        <td>
+                                            <img src={food.photo} alt={food.title} className="w-16 h-16 object-cover rounded" />
+                                        </td>
+                                        <td>{food.title}</td>
+                                        <td>{food.category}</td>
+                                        <td>{food.quantity}</td>
+                                        <td>{new Date(food.expiry).toLocaleDateString()}</td>
+                                        <td className="space-x-2">
+                                            <button
+                                                onClick={() => handleUpdate(food)}
+                                                className="btn btn-sm btn-primary"
+                                            >
+                                                Update
+                                            </button>
+                                            <button
+                                                onClick={() => handleDelete(food._id)}
+                                                className="btn btn-sm btn-error"
+                                            >
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-            )}
+                ) : (
+                    <div className="text-center mt-8">
+                        <p className="text-lg text-gray-600">You haven't add food items yet.</p>
+                    </div>
+                )}
+
+                {isUpdateModalOpen && selectedFood && (
+                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div className="bg-base-100 p-8 rounded-lg w-full max-w-md">
+                            <h3 className="text-2xl font-bold mb-4">Update Food Item</h3>
+                            <form onSubmit={handleUpdateSubmit} className="space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Food image URL</label>
+                                    <input
+                                        type="text"
+                                        name="photo"
+                                        defaultValue={selectedFood.photo}
+                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Food title</label>
+                                    <input
+                                        type="text"
+                                        name="title"
+                                        defaultValue={selectedFood.title}
+                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                                    <select
+                                        name="category"
+                                        defaultValue={selectedFood.category}
+                                        className="select w-full"
+                                    >
+                                        <option>Dairy</option>
+                                        <option>Meat</option>
+                                        <option>Vegetables</option>
+                                        <option>Snacks</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
+                                    <input
+                                        type="text"
+                                        name="quantity"
+                                        defaultValue={selectedFood.quantity}
+                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Expiry date</label>
+                                    <input
+                                        type="date"
+                                        name="expiry"
+                                        defaultValue={selectedFood.expiry.split('T')[0]}
+                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    />
+                                </div>
+                                <div className="flex justify-end space-x-2">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsUpdateModalOpen(false)}
+                                        className="btn btn-ghost"
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button type="submit" className="btn btn-primary">
+                                        Update
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
