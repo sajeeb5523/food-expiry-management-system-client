@@ -34,7 +34,7 @@ const NearlyExpirySection = () => {
                 console.error('Error fetching foods:', error);
                 setIsLoading(false);
             });
-            
+
         return () => clearTimeout(loadingTimer);
     }, []);
 
@@ -48,7 +48,10 @@ const NearlyExpirySection = () => {
                 className="text-3xl font-bold text-center mb-8"
             >Nearly Expiring Items</motion.h2> */}
 
-                <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-8'>Nearly Expiring Items</h3>
+                <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-4'>Nearly Expiring Items</h3>
+                {!isLoading && nearlyExpiringFoods.length > 0 && (
+                    <p className="text-lg mb-8 text-center">Displays food items nearing expiry to help reduce waste and prioritize usage.</p>
+                )}
 
                 {isLoading ? (
                     <div className="flex justify-center items-center h-64">

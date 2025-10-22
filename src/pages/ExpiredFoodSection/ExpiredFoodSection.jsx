@@ -28,7 +28,7 @@ const ExpiredFoodSection = () => {
                 console.error('Error fetching foods:', error);
                 setIsLoading(false);
             });
-            
+
         return () => clearTimeout(loadingTimer);
     }, []);
 
@@ -42,7 +42,10 @@ const ExpiredFoodSection = () => {
                 className="text-3xl font-bold text-center mb-8"
             >Expired Food Items</motion.h2> */}
 
-                <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-8'>Expired Food Items</h3>
+                <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-4'>Expired Food Items</h3>
+                {!isLoading && expiredFoods.length > 0 && (
+                    <p className="text-lg mb-8 text-center">Displays all food items that have passed their expiry date for easy tracking.</p>
+                )}
 
                 {isLoading ? (
                     <div className="flex justify-center items-center h-64">
