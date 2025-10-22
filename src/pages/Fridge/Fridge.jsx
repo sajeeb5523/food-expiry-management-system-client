@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useLoaderData, Link } from 'react-router';
 import CountUp from 'react-countup';
+import { FaSpinner } from 'react-icons/fa';
 
 const Fridge = () => {
     const foods = useLoaderData();
+    const [isLoading, setIsLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
-    const [filteredFoods, setFilteredFoods] = useState(foods);
+    const [filteredFoods, setFilteredFoods] = useState([]);
     const [expiredCount, setExpiredCount] = useState(0);
     const [nearlyExpiredCount, setNearlyExpiredCount] = useState(0);
     const [sortOrder, setSortOrder] = useState('none'); // 'none' | 'qty-asc' | 'qty-desc'
 
     useEffect(() => {
-        let result = foods;
+        // Set loading to true when component mounts
+        const loadingTimer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2500); // 2.5 seconds loading time
+
+        let result = foods || [];
 
         if (searchTerm) {
             result = result.filter(food =>
@@ -33,6 +40,8 @@ const Fridge = () => {
         }
 
         setFilteredFoods(result);
+        
+        return () => clearTimeout(loadingTimer);
     }, [searchTerm, selectedCategory, foods, sortOrder]);
 
     useEffect(() => {
@@ -126,6 +135,14 @@ const Fridge = () => {
 
                 </div>
 
+                {isLoading ? (
+                    <div className="flex justify-center items-center h-64">
+                        <div className="text-center">
+                            <FaSpinner className="animate-spin text-4xl text-primary mx-auto mb-4" />
+                            <p>Loading food items...</p>
+                        </div>
+                    </div>
+                ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredFoods.map(food => (
                         <div key={food._id} className="card bg-base-100 shadow-xl border border-white">
@@ -149,6 +166,7 @@ const Fridge = () => {
                         </div>
                     ))}
                 </div>
+                )}
 
                 {filteredFoods.length === 0 && (
                     <div className="text-center mt-8">

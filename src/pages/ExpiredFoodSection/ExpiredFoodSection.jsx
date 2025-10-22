@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
-import { motion } from "motion/react"
+import { motion } from "motion/react";
+import { FaSpinner } from 'react-icons/fa';
 
 const ExpiredFoodSection = () => {
     const [expiredFoods, setExpiredFoods] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        // Set loading to true when component mounts
+        const loadingTimer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2500); // 2.5 seconds loading time
+
         fetch('https://fets-bd-server.vercel.app/foods')
             .then(res => res.json())
             .then(data => {
@@ -17,7 +24,12 @@ const ExpiredFoodSection = () => {
 
                 setExpiredFoods(expired);
             })
-            .catch(error => console.error('Error fetching foods:', error));
+            .catch(error => {
+                console.error('Error fetching foods:', error);
+                setIsLoading(false);
+            });
+            
+        return () => clearTimeout(loadingTimer);
     }, []);
 
     return (
@@ -32,7 +44,14 @@ const ExpiredFoodSection = () => {
 
                 <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-8'>Expired Food Items</h3>
 
-                {expiredFoods.length > 0 ? (
+                {isLoading ? (
+                    <div className="flex justify-center items-center h-64">
+                        <div className="text-center">
+                            <FaSpinner className="animate-spin text-4xl text-primary mx-auto mb-4" />
+                            <p>Loading expired food items...</p>
+                        </div>
+                    </div>
+                ) : expiredFoods.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {expiredFoods.map(food => (
                             <div key={food._id} className="card bg-base-100 shadow-xl border border-white">
