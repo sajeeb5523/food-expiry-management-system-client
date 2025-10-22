@@ -39,19 +39,19 @@ const AboutUs = () => {
                 <div className="container mx-auto px-4">
                     <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-12'>Our Mission</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-base-300 p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300 border">
+                        <div className="bg-base-300 p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300 border border-white">
                             <FaUsers className="text-5xl text-green-600 mx-auto mb-6" />
                             <h3 className="text-xl font-semibold mb-3">Community</h3>
                             <p>Building a community committed to reducing food waste and helping those in need.</p>
                         </div>
 
-                        <div className="bg-base-300 p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300 border">
+                        <div className="bg-base-300 p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300 border border-white">
                             <FaClock className="text-5xl text-green-600 mx-auto mb-6" />
                             <h3 className="text-xl font-semibold mb-3">Efficiency</h3>
                             <p>Providing tools to track and manage food inventory before it expires.</p>
                         </div>
 
-                        <div className="bg-base-300 p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300 border">
+                        <div className="bg-base-300 p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300 border border-white">
                             <FaLeaf className="text-5xl text-green-600 mx-auto mb-6" />
                             <h3 className="text-xl font-semibold mb-3">Sustainability</h3>
                             <p>Promoting sustainable practices to protect our environment.</p>
@@ -66,12 +66,13 @@ const AboutUs = () => {
                     <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-12'>Meet Our Team</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {teamMembers.map((member, index) => (
-                            <div key={index} className="bg-base-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border">
+                            <div key={index} className="bg-base-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border border-white">
                                 <img
                                     src={member.image}
                                     alt={member.name}
                                     className="w-full h-94 object-cover"
                                 />
+
                                 <div className="p-6 text-center">
                                     <h3 className="text-xl font-semibold">{member.name}</h3>
                                     <p className="text-green-600 font-medium mb-3">{member.role}</p>
@@ -88,7 +89,7 @@ const AboutUs = () => {
                 <div className="container mx-auto px-4">
                     <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold text-center mb-12'>Get In Touch</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div className="bg-base-300 p-8 rounded-lg shadow-md border">
+                        <div className="bg-base-300 p-8 rounded-lg shadow-md border border-white">
                             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
                             <div className="space-y-4">
                                 <p className="flex items-center">
@@ -103,8 +104,8 @@ const AboutUs = () => {
                                 </p>
                             </div>
                         </div>
-                        
-                        <div className="bg-base-300 p-8 rounded-lg shadow-md border">
+
+                        <div className="bg-base-300 p-8 rounded-lg shadow-md border border-white">
                             <form className="space-y-6">
                                 <div>
                                     <input
@@ -132,7 +133,7 @@ const AboutUs = () => {
                                 </div>
                                 <button
                                     type="submit"
-                                    className="w-full bg-green-600 text-white py-3 px-6 rounded-md font-medium hover:bg-green-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                                    className="w-full bg-primary text-white py-3 px-6 rounded-md font-medium cursor-pointer transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
                                 >
                                     Send Message
                                 </button>

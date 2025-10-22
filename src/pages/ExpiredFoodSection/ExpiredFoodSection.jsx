@@ -35,7 +35,7 @@ const ExpiredFoodSection = () => {
                 {expiredFoods.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {expiredFoods.map(food => (
-                            <div key={food._id} className="card bg-base-100 shadow-xl border">
+                            <div key={food._id} className="card bg-base-100 shadow-xl border border-white">
                                 <figure className="px-4 pt-4">
                                     <img
                                         src={food.photo}
@@ -43,18 +43,21 @@ const ExpiredFoodSection = () => {
                                         className="rounded-xl h-48 w-full object-cover"
                                     />
                                 </figure>
+
                                 <div className="card-body">
                                     <h2 className="card-title">{food.title}</h2>
                                     <div className="flex items-center gap-2">
                                         <span className="badge badge-primary">{food.category}</span>
                                         <span className="badge badge-secondary">Quantity: {food.quantity}</span>
                                     </div>
+
                                     <div className="flex flex-col gap-2">
                                         <p className="text-sm text-base-50">
                                             Expired on: {new Date(food.expiry).toLocaleDateString()}
                                         </p>
                                         <span className="badge badge-error">Expired</span>
                                     </div>
+
                                     <div className="card-actions justify-end mt-4">
                                         <Link to={`/food/${food._id}`} className="btn btn-primary">
                                             See Details

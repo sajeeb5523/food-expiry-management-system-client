@@ -77,9 +77,8 @@ const NavBar = () => {
             </div>
             <div className='ml-10'>
             </div>
-            <ThemeController></ThemeController>
-            <div className='login_btn flex items-center gap-2 navbar-end'>
-
+            <div className='login_btn flex items-center gap-6 navbar-end'>
+                <ThemeController></ThemeController>
                 {user ? (
                     <div className="relative group">
                         <div className="avatar cursor-pointer">

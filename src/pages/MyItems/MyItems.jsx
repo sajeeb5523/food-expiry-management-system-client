@@ -141,7 +141,7 @@ const MyItems = () => {
                     </div>
                 ) : (
                     <div className="text-center mt-8">
-                        <p className="text-lg text-gray-600">You haven't add food items yet.</p>
+                        <p className="text-lg">You haven't add food items yet.</p>
                     </div>
                 )}
 
