@@ -19,7 +19,7 @@ const ExtraSection = () => {
 
     return (
         <div className='bg-base-100'>
-            <div className='container mx-auto py-8 px-4'>
+            <div className='container mx-auto pt-8 pb-12 px-4'>
                 <div className='text-center'>
                     <h3 className='text-[32px] md:text-[42px] text-[#1565C0] font-bold mb-4'> Food Expiry Management Guide</h3>
                     <h6 className='mb-10 text-xl'>Essential information and tips to help you manage food expiry dates, storage, and safety</h6>
