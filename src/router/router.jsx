@@ -13,6 +13,7 @@ import FoodDetails from "../pages/FoodDetails/FoodDetails";
 import PrivateRoutes from "../routes/PrivateRoutes";
 import Error from "../pages/Error/Error";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 const router = createBrowserRouter([
     {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
                 Component: Login,
             },
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
     },
     {
         path: '*',

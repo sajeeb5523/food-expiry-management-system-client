@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import { TbLogout, TbUser, TbHome, TbFridge, TbPlus, TbList, TbInfoCircle } from "react-icons/tb";
+import { MdDashboard } from "react-icons/md";
 import Swal from 'sweetalert2';
 import ThemeController from '../ThemeController/ThemeController';
 
@@ -99,6 +100,12 @@ const NavBar = () => {
                                     <p className="text-xs text-base-500">{user.email}</p>
                                 </div>
                                 <ul className="menu menu-sm p-2">
+                                    <li>
+                                        <NavLink to="/dashboard" className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 transition-colors">
+                                            <MdDashboard className="text-lg text-primary" />
+                                            Dashboard
+                                        </NavLink>
+                                    </li>
                                     <li>
                                         <button
                                             onClick={handleLogout}
