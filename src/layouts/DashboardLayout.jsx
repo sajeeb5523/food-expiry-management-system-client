@@ -15,8 +15,17 @@ import {
 const DashboardLayout = ({ children }) => {
     const { user, logout } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [sidebarOpen, setSidebarOpen] = useState(true);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState('dashboard');
+    
+    // Close sidebar on mobile when a menu item is clicked
+    const handleMenuItemClick = (menuName) => {
+        setActiveMenu(menuName);
+        // Close sidebar on mobile
+        if (window.innerWidth < 1024) { // lg breakpoint
+            setSidebarOpen(false);
+        }
+    };
 
     if (!user) {
         return (
@@ -47,6 +56,15 @@ const DashboardLayout = ({ children }) => {
     return (
         <div className="flex h-screen bg-gray-100">
             {/* Mobile sidebar */}
+            {/* Mobile overlay */}
+            {sidebarOpen && (
+                <div 
+                    className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
+                    onClick={() => setSidebarOpen(false)}
+                />
+            )}
+            
+            {/* Sidebar */}
             <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 z-30 w-64 bg-white shadow-lg transform transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
                 <div className="flex items-center justify-between h-16 px-4 bg-white border-b border-gray-200">
                     <div className="flex items-center">
@@ -92,9 +110,9 @@ const DashboardLayout = ({ children }) => {
                             href={item.href}
                             onClick={(e) => {
                                 e.preventDefault();
-                                setActiveMenu(item.name.toLowerCase());
+                                handleMenuItemClick(item.name.toLowerCase());
                             }}
-                            className={`${item.current ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-50'} group flex items-center px-4 py-3 text-sm font-medium`}
+                            className={`${activeMenu === item.name.toLowerCase() ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-50'} group flex items-center px-4 py-3 text-sm font-medium`}
                         >
                             <item.icon
                                 className={`${item.current ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'} mr-3 h-5 w-5`}
@@ -125,7 +143,10 @@ const DashboardLayout = ({ children }) => {
 
                         <div className="flex items-center space-x-4">
                             <button
-                                onClick={() => navigate('/')}
+                                onClick={() => {
+                                    navigate('/');
+                                    if (window.innerWidth < 1024) setSidebarOpen(false);
+                                }}
                                 className="flex items-center text-sm font-medium text-gray-700 hover:text-blue-600"
                             >
                                 <FiArrowLeft className="mr-1 h-4 w-4" />
